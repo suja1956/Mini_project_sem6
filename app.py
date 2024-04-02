@@ -3,7 +3,11 @@ import pickle
 import pandas as pd
 #from sklearn.preprocessing import StandardScaler
 
-# st.title("Loan Prediction System")
+# Loan prediction
+# python -m venv venv
+# venv\scripts\activate
+# pip install -r requirements.txt
+# python app.py
 
 # Load the trained model
 model = pickle.load(open('PD_credit_risk_model_dev.pkl', 'rb'))
