@@ -16,9 +16,26 @@
     <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
     <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
     <meta property="og:type" content="article" />
-
+    <style>
+        /* Define the styles for the button and its hover state */
+        .custom-button {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+    
+        /* Style the button on hover */
+        .custom-button:hover {
+            background-color: forestgreen; /* Change to a lighter shade of green on hover */
+        }
+    </style>
     <!-- Website Title -->
-    <title>Lending Club Analysis</title>
+    <title>Loan Default Prediction</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext"
@@ -34,6 +51,7 @@
     <link href="../static/css/swiper.css" rel="stylesheet">
     <link href="../static/css/magnific-popup.css" rel="stylesheet">
     <link href="../static/css/fontawesome-all.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
     <!-- <link href="../static/css/styles.css" rel="stylesheet"> -->
 
 
@@ -43,6 +61,42 @@
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
+
+        <!-- Image Logo -->
+        
+  
+        <!-- end of mobile menu toggle button -->
+
+
+        <!-- Image Logo -->
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+        <!-- end of mobile menu toggle button -->
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll"  href="../templates/index.html" >HOME <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#Predict">PREDICT</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+                </li>
+            </ul>
+           
+        </div>
+    </nav> <!-- end of navbar -->
+	    </nav> <!-- end of navbar -->
 
     <!-- Preloader -->
     <div class="spinner-wrapper">
@@ -57,42 +111,23 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
         <!-- Image Logo -->
-        <!-- <a class="navbar-brand logo-image" href="/"><img src="{{url_for('static', filename='images/logo.svg')}}"
-                alt="alternative"></a> -->
-        <a ><img src="../static/images/logo.svg" width="100"></a>
+        <a class="navbar-brand" href="#">
+            <img src="../static/images/logo.svg" width="100" alt="Logo">
+        </a>
+    
         <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-awesome fas fa-bars"></span>
-            <span class="navbar-toggler-awesome fas fa-times"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- end of mobile menu toggle button -->
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#Predict">PREDICT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#Visualize">VISUALIZE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#Insights">INSIGHTS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
-                </li>
-            </ul>
-
-        </div>
-    </nav> <!-- end of navbar -->
+    
+        <!-- Navbar Links -->
+        
+        <!-- End Navbar Links -->
+    </nav>
     <!-- end of navbar -->
+    
 
 
     <!-- Header -->
@@ -102,10 +137,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-container">
-                            <h1>Lending Data <span id="js-rotating"> Analysis, Prediction</span></h1>
+                            <h1>Loan Defaulter <span id="js-rotating">Prediction</span></h1>
                             <p class="p-heading p-large"></p>
                             <!-- <a class="btn-solid-lg page-scroll" href="#Predict">Predict Approval</a> -->
-                            
+                            <div class="form-group">
+                                <a class="form-control-submit-button" href="/predict"><button class="custom-button">Check Authenticity</button></a>
+                            </div>
 
                         </div>
                     </div> <!-- end of col -->
@@ -116,57 +153,7 @@
     <!-- end of header -->
 
     <!-- Description -->
-    <div id="Predict" class="cards-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <!-- Card -->
-                    <div class="card">
-                        <span class="fa-stack">
-                            <span class="hexagon"></span>
-                            <i class="fas fa-binoculars fa-stack-1x"></i>
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">Data Analysis</h4>
-                            <p>&#8226 Size: 1.2GB</br>&#8226 Shape: 21,00,000 Rows & 147 Columns</br>&#8226 Data Source:
-                                Kaggle</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <span class="fa-stack">
-                            <span class="hexagon"></span>
-                            <i class="fas fa-list-alt fa-stack-1x"></i>
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">Data Visualization</h4>
-                            <p>&#8226 Used Tableau to visualize lending data across United States.</br>
-                                &#8226 Used Sweetviz Library to get the distribution of each feature.</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <span class="fa-stack">
-                            <span class="hexagon"></span>
-                            <i class="fas fa-chart-pie fa-stack-1x"></i>
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">Default Prediction</h4>
-                            <p>&#8226 Get your Interest Rate, Grade, Sub Grade based on the FICO Score provided</br>
-                                &#8226 Get your loan approval chances by providing few necessary informations.</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
+    
     <!-- end of description -->
     <!-- Intro -->
     <div>
@@ -174,19 +161,15 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6">
-                    
-                </div> <!-- end of col -->
+               
                 <div class="col-lg-6">
 
                     <!-- Call Me Form -->
-                    <form id="callMeForm" data-toggle="validator" data-focus="false">
+<!--                  
                         <div class="form-group">
-                            <a class="form-control-submit-button" href="/predict">individual</a>
-                        </div>
-                        
-
-                    </form>
+                            <a class="form-control-submit-button" href="/predict"><button>Check Authenticity</button></a>
+                        </div> -->
+                    
                     <!-- end of call me form -->
 
                 </div> <!-- end of col -->
@@ -194,77 +177,18 @@
         </div> <!-- end of container -->
         <!-- end of call me -->
     </div> <!-- end of basic-1 -->
-    <!-- end of intro -->
-    <!-- Services -->
-    <!-- end of cards-2 -->
-    <!-- end of services -->
-    <div id="Insights" class="counter">
+    
+    <div id="contact" class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-xl-6">
-                    <div>
-                        <script type="text/javascript">window.PlotlyConfig = { MathJaxConfig: 'local' };</script>
-                        
-                        <div id="37a9b11e-380e-46e5-8f3e-73cced2d2bcc" class="plotly-graph-div"
-                            style="height:100%; width:100%;"></div>
-                        <script type="text/javascript">
-
-                            window.PLOTLYENV = window.PLOTLYENV || {};
-
-                            if (document.getElementById("37a9b11e-380e-46e5-8f3e-73cced2d2bcc")) {
-                                Plotly.newPlot(
-                                    '37a9b11e-380e-46e5-8f3e-73cced2d2bcc',
-                                    [{ "hoverlabel": { "namelength": 0 }, "hovertemplate": "sub_grade=%{x}<br>score =%{y}", "legendgroup": "", "line": { "color": "#636efa", "dash": "solid" }, "mode": "lines", "name": "", "showlegend": false, "type": "scatter", "x": ["A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4", "B5", "C1", "C2", "C3", "C4", "C5", "D1", "D2", "D3", "D4", "D5", "E1", "E2", "E3", "E4", "E5", "F1", "F2", "F3", "F4", "F5", "G1", "G2", "G3", "G4", "G5"], "xaxis": "x", "y": [789, 780, 769, 761, 741, 736, 733, 724, 719, 704, 696, 698, 689, 689, 680, 679, 680, 675, 669, 670, 660, 660, 660, 659, 657, 665, 662, 664, 658, 652, 654, 652, 648, 649, 652], "yaxis": "y" }],
-                                    { "legend": { "tracegroupgap": 0 }, "template": { "data": { "bar": [{ "error_x": { "color": "#2a3f5f" }, "error_y": { "color": "#2a3f5f" }, "marker": { "line": { "color": "#E5ECF6", "width": 0.5 } }, "type": "bar" }], "barpolar": [{ "marker": { "line": { "color": "#E5ECF6", "width": 0.5 } }, "type": "barpolar" }], "carpet": [{ "aaxis": { "endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f" }, "baxis": { "endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f" }, "type": "carpet" }], "choropleth": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "type": "choropleth" }], "contour": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour" }], "contourcarpet": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "type": "contourcarpet" }], "heatmap": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap" }], "heatmapgl": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl" }], "histogram": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "histogram" }], "histogram2d": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d" }], "histogram2dcontour": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour" }], "mesh3d": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "type": "mesh3d" }], "parcoords": [{ "line": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "parcoords" }], "pie": [{ "automargin": true, "type": "pie" }], "scatter": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scatter" }], "scatter3d": [{ "line": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scatter3d" }], "scattercarpet": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scattercarpet" }], "scattergeo": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scattergeo" }], "scattergl": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scattergl" }], "scattermapbox": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scattermapbox" }], "scatterpolar": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scatterpolar" }], "scatterpolargl": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scatterpolargl" }], "scatterternary": [{ "marker": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "type": "scatterternary" }], "surface": [{ "colorbar": { "outlinewidth": 0, "ticks": "" }, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface" }], "table": [{ "cells": { "fill": { "color": "#EBF0F8" }, "line": { "color": "white" } }, "header": { "fill": { "color": "#C8D4E3" }, "line": { "color": "white" } }, "type": "table" }] }, "layout": { "annotationdefaults": { "arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1 }, "coloraxis": { "colorbar": { "outlinewidth": 0, "ticks": "" } }, "colorscale": { "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]] }, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": { "color": "#2a3f5f" }, "geo": { "bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white" }, "hoverlabel": { "align": "left" }, "hovermode": "closest", "mapbox": { "style": "light" }, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": { "angularaxis": { "gridcolor": "white", "linecolor": "white", "ticks": "" }, "bgcolor": "#E5ECF6", "radialaxis": { "gridcolor": "white", "linecolor": "white", "ticks": "" } }, "scene": { "xaxis": { "backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white" }, "yaxis": { "backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white" }, "zaxis": { "backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white" } }, "shapedefaults": { "line": { "color": "#2a3f5f" } }, "ternary": { "aaxis": { "gridcolor": "white", "linecolor": "white", "ticks": "" }, "baxis": { "gridcolor": "white", "linecolor": "white", "ticks": "" }, "bgcolor": "#E5ECF6", "caxis": { "gridcolor": "white", "linecolor": "white", "ticks": "" } }, "title": { "x": 0.05 }, "xaxis": { "automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": { "standoff": 15 }, "zerolinecolor": "white", "zerolinewidth": 2 }, "yaxis": { "automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": { "standoff": 15 }, "zerolinecolor": "white", "zerolinewidth": 2 } } }, "title": { "text": "FICO Versus Sub Grade Per SEC Filing" }, "xaxis": { "anchor": "y", "domain": [0.0, 1.0], "title": { "text": "sub_grade" } }, "yaxis": { "anchor": "x", "domain": [0.0, 1.0], "title": { "text": "score " } } },
-                                    { "responsive": true }
-                                )
-                            };
-
-                        </script>
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <!-- <div class="col-lg-7 col-xl-6">
-                    <div class="text-container">
-                        <div class="section-title">Few Insights.</div>
-                        <h2>Using K nearest neighbours for prediction of Interest Rate</h2>
-                        <p>System tries to predict the Sub-Grade based on the FICO score provided.</p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body">One would expect the relation to be linear between FICO score
-                                    and sub grade but that is not exactly the case.</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body">From the sub-grade predicted we get the Interest Rate for the
-                                    applicant.</div>
-                            </li>
-                        </ul>
-                        <p>To know more about the data analysis look at this project on <a
-                                href="https://github.com/ikunal95/loan-default-prediction">Github</a></p> -->
-
-                        <!-- end of counter -->
-
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of counter -->
-    <!-- end of about -->
-
-    <!-- Footer -->
-    <div id=contact class="footer">
-        <div class="container">
-            <div class="row">
-                <img class="card-image" src="{{url_for('static', filename='images/kunal.png')}}" width="150"
-                    height="150" alt="alternative">
+			<img class="card-image" src="../static/images/group10.jpeg"  width="150" height="150" alt="alternative">
 
                 <div class="col-md-6">
                     <div class="text-container about">
                         <h4>Developed by:</h4>
-                        <h2 class="white">Kunal Goyal</h2>
-                        <p class="white">Masters Student at National University of Ireland, Maynooth.</p>
-                        <p class="white">Email: kunal.goyal.2020@mumail.ie </p>
+                        <h2 class="white">Group 10</h2>
+						<p class="white">Vivekanand Educational Society Institute of Technology</p>
+						<!-- <p class="white"   >Email: kunal.goyal.2020@mumail.ie </p> -->
 
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
@@ -273,62 +197,40 @@
                         <h4>Connect</h4>
                         <ul class="list-unstyled li-space-lg white">
                             <li>
-                                <a class="white" href="https://www.linkedin.com/in/kunal4g/">LinkedIn</a>
+                                <a class="white">LinkedIn</a>
                             </li>
                             <li>
-                                <a class="white" href="https://github.com/ikunal95">Github</a>
+                                <a class="white" >Github</a>
                             </li>
                             <li>
-                                <a class="white" href="https://www.kaggle.com/ikunal4g">Kaggle</a>
+                                <a class="white" >Kaggle</a>
                             </li>
                         </ul>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-md-2">
                     <div class="text-container">
-                        <h4>Tools Used</h4>
-                        <ul class="list-unstyled li-space-lg">
+                        <h4>Tool Used</h4>
+                        <ul class="list-unstyled li-space-lg white">
                             <li>
-                                <a class="white" href="https://www.ichec.ie/about/infrastructure/kay">ICHEC Kay</a>
+                                <a class="white">Html , Css , JavaScript</a>
                             </li>
                             <li>
-                                <a class="white"
-                                    href="https://public.tableau.com/profile/kunal.goyal#!/vizhome/lendingclub_15949916461750/Dashboard1">Tableau</a>
+                                <a class="white" >Python,Flask</a>
                             </li>
-                            <li class="media">
-                                <a class="white" href="https://www.lendingclub.com/info/statistics.action">Lending
-                                    Club</a>
+                            <li>
+                                <a class="white" >Jupyter Noteboook , Kaggle</a>
                             </li>
+                            
                         </ul>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
-
+                
+                
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of footer -->
-    <!-- end of footer -->
-
-
-
-    <!-- Scripts -->
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/jquery.easing.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/jquery.magnific-popup.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/morphext.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/isotope.pkgd.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/validator.min.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
-    <!-- jQuery for Bootstrap's JavaScript plugins -->
+    </div>  
+    
 </body>
 
 </html>

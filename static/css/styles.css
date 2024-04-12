@@ -375,11 +375,12 @@ input[type='checkbox'] {
 
 .form-control-submit-button {
 	display: inline-block;
-	width: 100%;
+	width: 21%;
 	height: 3.125rem;
-	border: 0.125rem solid #14bf98;
-	border-radius: 0.25rem;
-	background-color: #14bf98;
+	/* border: 0.125rem solid #14bf98; */
+	/* border-radius: 0.25rem; */
+	/* background-color: #14bf98; */
+	/* padding: px 50px ; */
 	color: #fff;
 	font: 700 0.75rem/1.75rem "Montserrat", sans-serif;
 	cursor: pointer;
