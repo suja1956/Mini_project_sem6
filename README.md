@@ -63,5 +63,12 @@ The dataset used in this project contains various features related to loan appli
 
    The app uses a Random Forest classifier from Scikit-learn for loan default prediction. The model is trained on labeled data and predicts the likelihood of a borrower defaulting based    on the features provided.
 
+## Contact
+For any queires, please contact
+- Sumeet Singh [2021.sumeet.singh@ves.ac.in](2021.sumeet.singh@ves.ac.in)
+- Sujal Sawdekar [2021.sujal.sawdekar@ves.ac.in](2021.sujal.sawdekar@ves.ac.in)
+- Kunal Pal [2021.kunal.pal@ves.ac.in](2021.kunal.pal@ves.ac.in)
+- Raghvendra Tripathi [2021.raghvendra.tripathi@ves.ac.in](2021.raghvendra.tripathi@ves.ac.in)
+ 
 
    
