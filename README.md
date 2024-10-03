@@ -9,7 +9,7 @@ This project is a Loan Default Prediction application that aims to help financia
 - [Installation](#installation)
 - [Usage](#usage)
 - [Data](#data)
-- [Model Training](#model-training)
+- [Machine learing model](#machine-learning-model)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -53,4 +53,6 @@ This project is a Loan Default Prediction application that aims to help financia
 2.Open your web browser and go to http://127.0.0.1:5000.
 
 ## Machine learing model
+
+   Random Forest
 
